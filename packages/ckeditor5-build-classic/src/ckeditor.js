@@ -31,6 +31,18 @@ import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
 import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices';
 
+import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage.js';
+import TableCellProperties from '@ckeditor/ckeditor5-table/src/tablecellproperties';
+import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
+import SpecialCharacters from '@ckeditor/ckeditor5-special-characters/src/specialcharacters.js';
+import SpecialCharactersMathematical from '@ckeditor/ckeditor5-special-characters/src/specialcharactersmathematical.js';
+import StandardEditingMode from '@ckeditor/ckeditor5-restricted-editing/src/standardeditingmode.js';
+import MathType from '@wiris/mathtype-ckeditor5';
+import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert.js';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment.js';
+import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage.js';
+
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
@@ -53,18 +65,31 @@ ClassicEditor.builtinPlugins = [
 	Indent,
 	Link,
 	List,
+	AutoImage,
+	Alignment,
+	LinkImage,
+	MathType,
+	ImageInsert,
+	ImageResize,
 	MediaEmbed,
 	Paragraph,
 	PasteFromOffice,
+	SpecialCharacters,
+	StandardEditingMode,
+	SpecialCharactersMathematical,
 	Table,
 	TableToolbar,
-	TextTransformation
+	TableProperties,
+	TextTransformation,
+	TableCellProperties
 ];
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
+			'undo',
+			'redo',
 			'heading',
 			'|',
 			'bold',
@@ -78,10 +103,15 @@ ClassicEditor.defaultConfig = {
 			'|',
 			'uploadImage',
 			'blockQuote',
-			'insertTable',
 			'mediaEmbed',
-			'undo',
-			'redo'
+			'imageUpload',
+			'insertTable',
+			'CKFinder',
+			'imageInsert',
+			'restrictedEditingException',
+			'MathType',
+			'ChemType',
+			'specialCharacters'
 		]
 	},
 	image: {
@@ -89,14 +119,17 @@ ClassicEditor.defaultConfig = {
 			'imageStyle:full',
 			'imageStyle:side',
 			'|',
-			'imageTextAlternative'
+			'imageTextAlternative',
+			'linkImage'
 		]
 	},
 	table: {
 		contentToolbar: [
 			'tableColumn',
 			'tableRow',
-			'mergeTableCells'
+			'mergeTableCells',
+			'tableCellProperties',
+			'tableProperties'
 		]
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
