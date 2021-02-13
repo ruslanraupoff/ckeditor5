@@ -42,6 +42,7 @@ import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert.js';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment.js';
 import AutoImage from '@ckeditor/ckeditor5-image/src/autoimage.js';
+import SimpleUploadAdapter from '@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter.js';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -81,7 +82,8 @@ ClassicEditor.builtinPlugins = [
 	TableToolbar,
 	TableProperties,
 	TextTransformation,
-	TableCellProperties
+	TableCellProperties,
+	SimpleUploadAdapter
 ];
 
 // Editor configuration.
